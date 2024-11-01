@@ -1,0 +1,66 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:PgManager.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		
+        mc:Ignorable="d" d:DesignWidth="1000" d:DesignHeight="800"
+        x:Class="PgManager.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="PgManager"
+		Height="800"
+		Width="1000">
+
+	<Grid RowDefinitions="Auto, Auto, 0.5*, 0.5*" ColumnDefinitions="Auto, *">
+
+		<Menu x:Name="MainMenu"
+			  Grid.Column="0"
+			  Grid.Row="0"
+			  Grid.ColumnSpan="2">
+			<MenuItem Header="_File"/>
+		</Menu>
+
+		<StackPanel x:Name="ControlPanel"
+					Grid.Column="0"
+					Grid.Row="1"
+					Grid.ColumnSpan="2"
+					Orientation="Horizontal"
+					Margin="5">
+			<Button>
+				<PathIcon Data="{StaticResource RunQuery}" />
+			</Button>
+			
+			<Button Command="{Binding ServerConnectionAddCommand}">
+				<PathIcon Data="{StaticResource AddServer}" />
+			</Button>
+		</StackPanel>
+
+		<ListBox x:Name="ServersList"
+				 Grid.Column="0"
+				 Grid.Row="2"
+				 Grid.RowSpan="2"
+				 Width="200"
+				 ItemsSource="{Binding Servers}"/>
+
+		<TextBox x:Name="Workspace"
+				 Grid.Column="1"
+				 Grid.Row="2"
+				 Margin="0 0 5 0"/>
+
+		<TabControl x:Name="ResultTabControl"
+					Grid.Column="1"
+					Grid.Row="3">
+			<TabItem Header="Result" FontSize="15">
+				<DataGrid x:Name="ResultGrid"/>
+			</TabItem>
+			<TabItem Header="Console log" FontSize="15">
+				<TextBox IsReadOnly="True" Margin="0 0 0 5"/>
+			</TabItem>
+		</TabControl>
+
+	</Grid>
+
+</Window>
+
+
