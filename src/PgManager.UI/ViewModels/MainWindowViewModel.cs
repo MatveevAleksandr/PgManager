@@ -1,15 +1,8 @@
 ﻿using System.Collections.ObjectModel;
-using System.Reactive;
 using System.Reactive.Linq;
-using Blazorise;
 using ReactiveUI;
 using System.Windows.Input;
-using Avalonia;
-using Avalonia.Controls;
-using Avalonia.Controls.ApplicationLifetimes;
-using CommunityToolkit.Mvvm.Input;
-using PgManager.Models;
-using PgManager.Views;
+using PgManager.Data.Core.Models;
 
 namespace PgManager.ViewModels
 {

@@ -11,6 +11,6 @@
   
     <Application.Styles>
         <FluentTheme />
-		<StyleInclude Source="avares://PgManager/Icons.axaml" />
+		<StyleInclude Source="avares://PgManager.UI/Icons.axaml" />
     </Application.Styles>
 </Application>

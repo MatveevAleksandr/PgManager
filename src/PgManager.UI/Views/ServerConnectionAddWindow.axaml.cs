@@ -4,7 +4,6 @@ using ReactiveUI;
 using System;
 using System.Reactive;
 using Avalonia.Controls;
-using PgManager.Models;
 
 
 namespace PgManager.Views;
@@ -14,12 +13,11 @@ public partial class ServerConnectionAddWindow : ReactiveWindow<ServerConnection
     public ServerConnectionAddWindow()
     {
         InitializeComponent();
+        if (Design.IsDesignMode) return;
         this.WhenActivated(action =>
         {
             action(ViewModel!.OkCommand.Subscribe(Close));
-            action(ViewModel!.CancelCommand.Subscribe(Close));
+            action(ViewModel!.CancelCommand.Subscribe(_ => Close()));
         });
-
-        
     }
 }

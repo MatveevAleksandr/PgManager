@@ -1,7 +1,7 @@
 using System.Threading.Tasks;
 using Avalonia.Controls;
 using Avalonia.ReactiveUI;
-using PgManager.Models;
+using PgManager.Data.Core.Models;
 using PgManager.ViewModels;
 using ReactiveUI;
 
@@ -12,7 +12,7 @@ namespace PgManager.Views
         public MainWindow()
         {
             InitializeComponent();
-
+            if (Design.IsDesignMode) return;
             this.WhenActivated(action => action(ViewModel!.ShowServerConnectionAdd.RegisterHandler(ShowServerConnectionAdd)));
         }
 
